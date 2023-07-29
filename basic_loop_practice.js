@@ -1,4 +1,4 @@
-// double equal doesn't match the datatypes....it only matches the values.
+// double equal doesn't match the datatypes....it only matches the values.Hence, triple = is used.
 //  eg. let x='10' is equal to let x=10; ie. string is equal to number
 
 const x =10;
