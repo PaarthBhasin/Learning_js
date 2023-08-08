@@ -22,32 +22,31 @@ var options = {
         }
     }
 };
-var users = [
-    {
-      name: "tom",
-      age: "21",
+var users = [{
+        name: "tom",
+        age: "21",
     },
     {
-      name: "dick",
-      age: "23",
+        name: "dick",
+        age: "23",
     },
     {
-      name: "harry",
-      age: "29",
+        name: "harry",
+        age: "29",
     },
-  ];
-  var document = {
+];
+var document = {
     html: html,
     data: {
-      users: users,
+        users: users,
     },
     path: "./output.pdf",
     type: "pdf",
-  };
-  pdf(document, options)
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+};
+pdf(document, options)
+    .then((res) => {
+        console.log(res);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
