@@ -1,3 +1,5 @@
-console.log(a);
-let a = 10;
-var b = 100;
+let a = 20;
+function x(){
+    var a = 10;
+}
+x();
