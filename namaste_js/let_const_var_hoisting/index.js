@@ -1,18 +1,32 @@
-// function x(){
-//     var i = 1;
-//     setTimeout( function (){
-//         console.log(i);
-//     }, 1000);
-//     console.log('Paarth')
-// }
-// x();
+const users = [
+    {
+        firstName: "paarth",
+        lastName: "bhasin",
+        age:'21'
+    },
+    {
+        firstName: "pankaj",
+        lastName: "bhasin",
+        age:'61'
+    },
+    {
+        firstName: "prakhar",
+        lastName: "bhasin",
+        age:'27'
+    },
+    {
+        firstName: "guljeet",
+        lastName: "kaur",
+        age:'52'
+    },
 
-function x(){
-    for( var i=1; i<=5; i++){
-        setTimeout( function (){
-            console.log(i);
-        }, i* 1000);
+]
+
+const output = users.reduce(function (acc,curr){
+    if(curr.age<30){
+        acc.push(curr.firstName);
     }
-    console.log('Paarth')
-}
-x();
+    return acc;
+},[])
+
+console.log(output);
