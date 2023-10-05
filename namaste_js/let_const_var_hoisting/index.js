@@ -1,8 +1,8 @@
-function outer(){
-    var a = 10;
-    function inner(a){
-        console.log(a);
-    }
-    return inner;
+const radius = [3,1,2,4];
+const area = function(radius){
+    return Math.PI * radius * radius;
 }
-outer()(100);
+console.log(radius.map(function(radiu){
+    return Math.PI * radiu * radiu;
+}));
+console.log(radius.map(area));
