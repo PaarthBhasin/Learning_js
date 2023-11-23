@@ -1,19 +1,17 @@
-function convertDistance(){
-    const distance = document.getElementById("dist").value;//returns string value
-    const kilometers = parseFloat(distance);//converts string to float value
+function calcArea(){
+    const radius = document.getElementById("radius").value;
+    const Radius = parseFloat(radius);
 
-    if(isNaN(kilometers)){
-        alert("Please enter a valid distance");
+    if(isNaN(Radius)){
+        alert("enter a valid radius");
         return;
     }
-    else{
-        const meters = kilometers * 1000;
-        const centimeters = kilometers *100000;
 
-        const result = document.getElementById("ans");
-        result.textContent = `${kilometers} kilometers is equivalent to ${meters}meters and ${centimeters} centimeters`
-    }
+    const a = 3.14 * Radius * Radius;
+
+    const result = document.getElementById("area");
+    result.textContent = `the area of a circle of radius ${radius} is ${a}`
 }
-document.getElementById('myForm').addEventListener('submit', function (event){
+document.getElementById('myForm').addEventListener('submit', function(event){
     event.preventDefault();
 });

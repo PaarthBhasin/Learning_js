@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prep</title>
+    <title>Area of circle</title>
 </head>
 <body>
     <form id="myForm">
-        <label for="dist">Enter the distance in kilometer: </label>
-        <input type="text" name="dist" id="dist" placeholder="Enter the distance">
-        <button onClick="convertDistance()">Convert</button>
+        <label for="radius">Radius: </label>
+        <input type="text" id="radius" placeholder="Enter the radius">
+        <button onClick="calcArea()">Calculate the area</button>
+        <div id="area"></div>
     </form>
-    <div id="ans"></div>
     <script src="index.js"></script>
 </body>
 </html>
