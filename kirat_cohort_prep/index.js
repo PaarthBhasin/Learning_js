@@ -1,15 +1,15 @@
-function calculateSum(){
-    const num1 = document.getElementById("a1").value;
-    const num2 = document.getElementById("a2").value;
+function total(){
+    const m1 = document.getElementById("m1").value;
+    const m2 = document.getElementById("m2").value;
 
-    const a1 = parseFloat(num1);
-    const a2 = parseFloat(num2);
+    const t1 = parseFloat(m1);
+    const t2 = parseFloat(m2);
 
-    const sum = document.getElementById("ans");
-    const a = a1 + a2;
+    const sum = (t1 + t2)/2;
 
-    sum.textContent = `The sum of ${a1} and ${a2} is : ${a}`;
+    const percentage = document.getElementById("percentage");
+    percentage.textContent = `The total percentage is: ${sum}%`;
 }
-document.getElementById('myForm').addEventListener('submit', function(event){
+document.getElementById("myForm").addEventListener('submit', function(event){
     event.preventDefault();
 })
