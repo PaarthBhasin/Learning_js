@@ -1,17 +1,15 @@
-function calcArea(){
-    const radius = document.getElementById("radius").value;
-    const Radius = parseFloat(radius);
+function calculateSum(){
+    const num1 = document.getElementById("a1").value;
+    const num2 = document.getElementById("a2").value;
 
-    if(isNaN(Radius)){
-        alert("enter a valid radius");
-        return;
-    }
+    const a1 = parseFloat(num1);
+    const a2 = parseFloat(num2);
 
-    const a = 3.14 * Radius * Radius;
+    const sum = document.getElementById("ans");
+    const a = a1 + a2;
 
-    const result = document.getElementById("area");
-    result.textContent = `the area of a circle of radius ${radius} is ${a}`
+    sum.textContent = `The sum of ${a1} and ${a2} is : ${a}`;
 }
 document.getElementById('myForm').addEventListener('submit', function(event){
     event.preventDefault();
-});
+})
