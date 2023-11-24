@@ -1,12 +1,10 @@
-function checklegal(){
-    const ageId = document.getElementById("age").value;
+function gradeCal(){
+    const marks = document.getElementById("marksId").value;
 
-    const a = parseFloat(ageId);
-    if(a >18){
-        console.log("You are eligible to drive");
-    }
-    else{
-        console.log("You are not eligible to drive")
+    const m = parseFloat(marks);
+
+    if(m >= 90 && m <= 100){
+        console.log("Your grade is A")
     }
 }
 document.getElementById("myForm").addEventListener("submit", function(event){
