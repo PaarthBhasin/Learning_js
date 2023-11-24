@@ -1,17 +1,8 @@
-function simplei(){
-    const principle = document.getElementById("principleId").value;
-    const rate = document.getElementById("rateId").value;
-    const years = document.getElementById("yearsId").value;
+const x = 1;
 
-    const p = parseFloat(principle);
-    const r = parseFloat(rate);
-    const t = parseFloat(years);
-
-    const si = (p*r*t)/100;
-
-    const interest = document.getElementById("interest");
-    interest.textContent = `The simple interest is : ${si}`;
+if(x>10){
+    console.log("x is greater than 10");
 }
-document.getElementById("myForm").addEventListener("submit", function(event){
-    event.preventDefault();
-});
+else{
+    console.log("x is not greater than 10");
+}
