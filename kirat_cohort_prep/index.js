@@ -1,8 +1,14 @@
-const x = 1;
+function checklegal(){
+    const ageId = document.getElementById("age").value;
 
-if(x>10){
-    console.log("x is greater than 10");
+    const a = parseFloat(ageId);
+    if(a >18){
+        console.log("You are eligible to drive");
+    }
+    else{
+        console.log("You are not eligible to drive")
+    }
 }
-else{
-    console.log("x is not greater than 10");
-}
+document.getElementById("myForm").addEventListener("submit", function(event){
+    event.preventDefault();
+})
