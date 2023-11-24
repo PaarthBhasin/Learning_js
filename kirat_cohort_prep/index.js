@@ -1,15 +1,16 @@
-function total(){
-    const m1 = document.getElementById("m1").value;
-    const m2 = document.getElementById("m2").value;
+function calculate(){
+    const len = document.getElementById("len").value
+    const bre = document.getElementById("bre").value
 
-    const t1 = parseFloat(m1);
-    const t2 = parseFloat(m2);
+    const l = parseFloat(len);
+    const b = parseFloat(bre);
 
-    const sum = (t1 + t2)/2;
+    const area = l*b;
+    const peri = 2*(l+b);
 
-    const percentage = document.getElementById("percentage");
-    percentage.textContent = `The total percentage is: ${sum}%`;
+    const ans = document.getElementById("ans");
+    ans.textContent = `The area of the rectangle is : ${area} and the perimter is : ${peri}`;
 }
-document.getElementById("myForm").addEventListener('submit', function(event){
+document.getElementById("myForm").addEventListener("submit", function(event){
     event.preventDefault();
 })
