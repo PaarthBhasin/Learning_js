@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Average Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple interest</title>
 </head>
 <body>
-
-  <label for="numberOfNumbers">Enter the number of values: </label>
-  <input type="number" id="numberOfNumbers" placeholder="Enter n">
-  <button onclick="inputNumbers()">Submit</button>
-
-  <div id="inputContainer" style="display: none;">
-    <p>Enter the numbers:</p>
-    <div id="numbersInput"></div>
-    <button onclick="calculateAverage()">Calculate Average</button>
-  </div>
-
-  <p id="result"></p>
-
-  <script src="index.js"></script>
-
+    <form id="myForm">
+        <label id="principle">Principle: </label>
+        <input type="text" placeholder="Enter the principle amount :" id="principleId">
+        <label id="rate">Rate of Interest: </label>
+        <input type="text" placeholder="Enter the rate of interest :" id="rateId">
+        <label id="years">Number of Years: </label>
+        <input type="text" placeholder="Enter the number of years :" id="yearsId">
+        <button onclick="simplei()">Submit</button>
+    </form>
+    <div id="interest"></div>
+    <script src="index.js"></script>
 </body>
 </html>
