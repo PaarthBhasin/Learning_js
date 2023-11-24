@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perimeter and Area of Rectangle</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Average Calculator</title>
 </head>
 <body>
-    <form id="myForm">
-        <label for="len">Length</label>
-        <input type="text" id="len" placeholder="Enter the length">
-        <label for="bre">Breadth</label>
-        <input type="text" id="bre" placeholder="Enter the breadth">
-        <button onclick="calculate()">Calculate area and perimeter of the rectangle</button>
-    </form>
-    <div id="ans"></div>
-    <script src="index.js"></script>
+
+  <label for="numberOfNumbers">Enter the number of values: </label>
+  <input type="number" id="numberOfNumbers" placeholder="Enter n">
+  <button onclick="inputNumbers()">Submit</button>
+
+  <div id="inputContainer" style="display: none;">
+    <p>Enter the numbers:</p>
+    <div id="numbersInput"></div>
+    <button onclick="calculateAverage()">Calculate Average</button>
+  </div>
+
+  <p id="result"></p>
+
+  <script src="index.js"></script>
+
 </body>
 </html>
