@@ -1,9 +1,8 @@
-let g = 10;
-function local (){
-    let l = 1;
-    console.log(l);
-    console.log(g);
+function x(){
+    let a = 10;
+     function y(){
+        console.log(a);
+     }
+     return y;
 }
-local();
-console.log(g)
-console.log(l)
+console.log(x());
