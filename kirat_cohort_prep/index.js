@@ -1,3 +1,6 @@
-let a = 10;
+let str1 = "abc";
+let str2 = "def";
 
-a===1? console.log(a): console.log(11);
+str1 = str1.concat(str2);
+
+console.log(str1);
