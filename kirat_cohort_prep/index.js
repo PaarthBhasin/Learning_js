@@ -1,9 +1,6 @@
-function transform(str){
-    const uStr = str.map((s)=>{
-        return s.toUpperCase();
-    })
-    return uStr;
+function sasync(message,delay){
+    setTimeout(()=>{
+        console.log(message);
+    },delay)
 }
-const arr = ["paarth", "ginni","neha", "pankaj"]
-const ans = transform(arr);
-console.log(ans)
+sasync("Hello", 10000);
