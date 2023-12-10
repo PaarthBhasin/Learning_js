@@ -1,13 +1,9 @@
-function isPrime(number){
-    if( number <= 1){
-        return false;
-    }
-    for(let i = 2; i < Math.sqrt(number); i++){
-        if(number % i === 0){
-            return false;
-        }
-    }
-    return true;
+let g = 10;
+function local (){
+    let l = 1;
+    console.log(l);
+    console.log(g);
 }
-const a = isPrime(17);
-console.log(a)
+local();
+console.log(g)
+console.log(l)
