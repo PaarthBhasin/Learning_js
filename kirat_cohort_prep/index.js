@@ -1,8 +1,8 @@
-function x(){
-    let a = 10;
-     function y(){
-        console.log(a);
-     }
-     return y;
+function fact(num){
+    if(num == 1){
+        return 1;
+    }
+    return num * fact(num-1);
 }
-console.log(x());
+const a = fact(3);
+console.log(a)
