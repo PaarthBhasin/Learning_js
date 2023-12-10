@@ -1,8 +1,9 @@
-function fact(num){
-    if(num == 1){
-        return 1;
-    }
-    return num * fact(num-1);
+let a=[1,2,3,4,5];
+
+function filterOddNumbers(a){
+    const arr = a.filter( b => b%2 != 0);
+    return arr;
 }
-const a = fact(3);
-console.log(a)
+
+const oddNumbers = filterOddNumbers(a);
+console.log(oddNumbers)
