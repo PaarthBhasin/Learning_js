@@ -1,6 +1,10 @@
-let str1 = "abc";
-let str2 = "def";
-
-str1 = str1.concat(str2);
-
-console.log(str1);
+const car = { make:'Honda', model:'Accord', year:1998};
+console.log('make' in car);
+delete car.make;
+if('make' in car === false){
+    car.make='Suzuki';
+}
+console.log(car.make)
+delete car.model;
+car.model = 'City';
+console.log(car.model)
