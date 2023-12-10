@@ -1,9 +1,11 @@
-let a=[1,2,3,4,5];
-
-function filterOddNumbers(a){
-    const arr = a.filter( b => b%2 != 0);
-    return arr;
+function a (arr, callback){
+    const modifiedArray = arr.map(callback);
+    return modifiedArray;
 }
+const originalArray = [1,2,3,4];
 
-const oddNumbers = filterOddNumbers(a);
-console.log(oddNumbers)
+const doubleCallback = function (element){
+    return element*2;
+}
+const doubleArray = a(originalArray, doubleCallback);
+console.log(doubleArray);
