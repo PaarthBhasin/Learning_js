@@ -1,3 +1,3 @@
-let a = 1;
-let b = 3;
-console.log(a^b);
+let a = 10;
+
+a===1? console.log(a): console.log(11);
