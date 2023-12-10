@@ -1,4 +1,13 @@
-function exp(base, e){
-    console.log(base ** e);//exponentiation operator
+function isPrime(number){
+    if( number <= 1){
+        return false;
+    }
+    for(let i = 2; i < Math.sqrt(number); i++){
+        if(number % i === 0){
+            return false;
+        }
+    }
+    return true;
 }
-exp(2,2);
+const a = isPrime(17);
+console.log(a)
