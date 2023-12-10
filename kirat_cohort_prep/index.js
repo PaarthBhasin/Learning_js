@@ -1,15 +1,4 @@
-function greeting(time){
-    if(time>=6 && time<12){
-        console.log("Good morning!");
-    }
-    else if(time>=12 && time<16){
-        console.log("Good afternoon!");
-    }
-    else if(time>16 && time<20){
-        console.log("Good evening!");
-    }
-    else{
-        console.log('Good night!')
-    }
+function exp(base, e){
+    console.log(base ** e);//exponentiation operator
 }
-greeting(1)
+exp(2,2);
