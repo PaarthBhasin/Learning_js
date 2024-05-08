@@ -1,9 +1,4 @@
-let globalId = 1;
 
-function marksAsDone(todoId){
-    const parent = document.getElementById(todoId);
-    parent.children[2].innerHTML = "Done!"
-}
 function createChild(title, description, id){
     const child = document.createElement("div");
     const firstGrandChild = document.createElement("div");
@@ -19,9 +14,17 @@ function createChild(title, description, id){
     child.setAttribute("id",id);
     return child;
 }
-function addToDo(){
-    const title = document.getElementById("title").value;
-    const description = document.getElementById("description").value;
-    const parent = document.getElementById("outerDiv");
-    parent.appendChild(createChild(title, description, globalId++));
+function updateDomAccToState(state){
+    const parent = document.getElementById("container");
+    parent.innerHTML = "";
+    for(let i = 0; i< state.length; i++){
+        const child = createChild(state[i].title, state[i].description, state[i].id);
+        parent.appendChild(child);
+    }
 }
+
+window.setInterval(async function (){
+    // const res = await fetch("https://sum-server.100xdevs.com/todos");
+    // const json = await res.json();
+    // updateDomAccToState(json.todos);
+})
