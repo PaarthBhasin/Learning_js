@@ -1,41 +1,21 @@
-import { useState } from "react";
-
-let counter = 4;
+import './App.css'
 
 function App(){
-  const [todos, setTodos] = useState([{
-    id:1,
-    title:"Go to gym",
-    description: "Need to hit the gym from 7-9pm"
-  },{
-    id:2,
-    title:"Go to college",
-    description: "Need to attend college from 9-4pm"
-  },{
-    id:3,
-    title:"Go to sleep",
-    description: "Need to go to sleep from 12-7am"
-  }]);
-
-  function addTodo(){
-    setTodos([...todos, {
-      id:counter++,
-      title: Math.random(),
-      description: Math.random()
-    }])
-  }
+  return <div>
+    <CardWrapper innerComponent={<TextComponent />} />
+  </div>
+}
+function TextComponent(){
   return(
     <div>
-      <button onClick={addTodo}>Add todo</button>
-      {todos.map(todo=><Todo key={todo.id} title={todo.title} description={todo.description} />)}
+      hi there
     </div>
   )
 }
-function Todo({title, description}){
+function CardWrapper({innerComponent}){
   return(
-    <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
+    <div style={{border:"2px solid black"}}>
+      {innerComponent}
     </div>
   )
 }
