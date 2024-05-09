@@ -2,20 +2,17 @@ import './App.css'
 
 function App(){
   return <div>
-    <CardWrapper innerComponent={<TextComponent />} />
+    <CardWrapper>
+      <div>hi there</div>
+    </CardWrapper>
   </div>
 }
-function TextComponent(){
+
+function CardWrapper({children}){
+  console.log(children)
   return(
-    <div>
-      hi there
-    </div>
-  )
-}
-function CardWrapper({innerComponent}){
-  return(
-    <div style={{border:"2px solid black"}}>
-      {innerComponent}
+    <div style={{border:"2px solid black", padding: 20}}>
+      {children}
     </div>
   )
 }
