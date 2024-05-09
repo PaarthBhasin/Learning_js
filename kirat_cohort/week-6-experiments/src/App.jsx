@@ -1,19 +1,21 @@
-import './App.css'
+import { useEffect, useState } from "react";
 
 function App(){
-  return <div>
-    <CardWrapper>
-      <div>hi there</div>
-    </CardWrapper>
-  </div>
-}
+  const [todos, setTodos] = useState([]);
+  
+  useEffect(()=>{
+    fetch("https://sum-server.100xdevs.com/todos")
+    .then( async (res) =>{
+      const json = await res.json();
+      setTodos(json.todos);
+    })
+  }, []);
 
-function CardWrapper({children}){
-  console.log(children)
   return(
-    <div style={{border:"2px solid black", padding: 20}}>
-      {children}
+    <div>
+      {todos.map(todo=> <li key={todo.id}>{todo.title} : {todo.description}</li>)}
     </div>
   )
 }
+
 export default App;
