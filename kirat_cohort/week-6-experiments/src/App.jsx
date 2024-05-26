@@ -1,44 +1,50 @@
-import { useCallback, useEffect, memo, useState } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
+// import { Dashboard } from "./components/Dashboard";
+import React, { Suspense } from "react"
+// import Landing  from "./components/Landing";
+const Landing = React.lazy(() => import("./components/Landing"))
+const Dashboard = React.lazy(() => import("./components/Dashboard"))
 
-function App(){
-  const [exchange1Data, setExchange1Data] = useState({});
-  const [exchange2Data, setExchange2Data] = useState({});
-  const [bankData, setBankData] = useState({});
+function App() {
+  return (
+    <BrowserRouter>
+      <Appbar />
+      <Routes>
+        <Route
+          path="/dashboard"
+          element={
+            <Suspense fallback={<div>Loading....</div>}>
+              <Dashboard />
+            </Suspense>
+          }
+        />
+        <Route path="/" element={<Suspense fallback={<div>Loading....</div>}>
+              <Landing />
+            </Suspense>} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
 
-  useEffect(()=>{
-    setExchange1Data({
-      returns:100
-    })
-  },[]);
-
-  useEffect(()=>{
-    setExchange2Data({
-      returns:100
-    })
-  },[]);
-
-  useEffect(()=>{
-    setTimeout(()=>{
-      setBankData(
-        {income: 100}
-      );
-    }, 5000)
-  })
-  const calculateCryptoReturns = useCallback(()=>{
-    return exchange1Data.returns + exchange2Data.returns;
-  }, [exchange1Data, exchange2Data]);
-
+function Appbar() {
+  const navigate = useNavigate() // useNavigate needs to be inside BrowserRouter
   return (
     <div>
-      <CryptoGainsCalculator calculateCryptoReturns={calculateCryptoReturns} />
+      <div>
+        <button
+          onClick={() => {
+            navigate("/")
+          }}>
+          Landing Page
+        </button>
+        <button
+          onClick={() => {
+            navigate("/dashboard")
+          }}>
+          Dashboard
+        </button>
+      </div>
     </div>
   )
 }
-const CryptoGainsCalculator = memo(function ({calculateCryptoReturns}){
-  console.log("crypto child re-render");
-  return <div>
-    Your crypto returns are {calculateCryptoReturns()}
-  </div>
-})
-
-export default App;
+export default App
