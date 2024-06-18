@@ -1,35 +1,31 @@
-import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil"
-import { countAtom } from "./store/atoms/count"
+import { RecoilRoot, useRecoilValue } from "recoil"
+import { jobsAtom, messagingAtom, networkAtom, notificationsAtom, totalNotificationSelector } from "./atoms"
 
 function App() {
+  return <RecoilRoot>
+    <MainApp />
+  </RecoilRoot>
+}
+
+function MainApp() {
+  const networkNotificationCount = useRecoilValue(networkAtom)
+  const jobsNotificationCount = useRecoilValue(jobsAtom);
+  const messagingNotificationCount = useRecoilValue(messagingAtom);
+  const notificationNotificationCount = useRecoilValue(notificationsAtom);
+  const totalNotificationCount = useRecoilValue(totalNotificationSelector)
   return (
-    <div>
-      <RecoilRoot>
-        <Count />
-      </RecoilRoot>
-    </div>
+    <>
+      <button>Home</button>
+      <button>
+        My network (
+        {networkNotificationCount >= 100 ? "99+" : networkNotificationCount})
+      </button>
+      <button>Jobs ( {jobsNotificationCount >= 100 ? "99+" : jobsNotificationCount}))</button>
+      <button>Messaging ( {messagingNotificationCount >= 100 ? "99+" : messagingNotificationCount}))</button>
+      <button>Notifications ( {notificationNotificationCount >= 100 ? "99+" : notificationNotificationCount}))</button>
+      <button>Me({totalNotificationCount})</button>
+    </>
   )
 }
 
-function Count() {
-  return (
-    <div>
-      <CountRenderer />
-      <Buttons />
-    </div>
-  )
-}
-function CountRenderer() {
-  const count = useRecoilValue(countAtom)
-  return <div>{count}</div>
-}
-function Buttons() {
-  const [count, setCount] = useRecoilState(countAtom)
-  return (
-    <div>
-      <button onClick={() => setCount(count + 1)}>Increase</button>
-      <button onClick={() => setCount(count - 1)}>Decrease</button>
-    </div>
-  )
-}
 export default App
