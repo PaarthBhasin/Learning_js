@@ -1,25 +1,39 @@
-import { RecoilRoot, useRecoilValue } from 'recoil'
-import { notifications, totalNotificationSelector } from './atoms'
 
+import './App.css'
+import { RecoilRoot, useRecoilState, useSetRecoilState } from 'recoil';
+import { todosAtomFamily } from './atoms';
+import { useEffect } from 'react';
 
 function App() {
   return <RecoilRoot>
-    <MainApp />
+    <UpdaterComponent />
+    <Todo id={1}/>
+    <Todo id={2} />
   </RecoilRoot>
 }
 
-function MainApp() {
-  const networkCount = useRecoilValue(notifications)
-  const totalNotificationCount = useRecoilValue(totalNotificationSelector);
+function UpdaterComponent(){
+  const updateTodo = useSetRecoilState(todosAtomFamily(2));
+
+  useEffect(()=>{
+   setTimeout(()=>{
+     updateTodo({
+       id: "2",
+       title: "New title",
+       description: "new todo"
+     })
+   }, 5000);
+  })
+}
+
+function Todo({id}) {
+   const [todo, setTodo] = useRecoilState(todosAtomFamily(id));
 
   return (
     <>
-      <button>Home</button>
-      <button>My network ({networkCount.network >= 100 ? "99+" : networkCount.network})</button>
-      <button>Jobs {networkCount.jobs}</button>
-      <button>Messaging ({networkCount.messaging})</button>
-      <button>Notifications ({networkCount.notifications})</button>
-      <button>Me ({totalNotificationCount})</button>
+      {todo.title}
+      {todo.description}
+      <br />
     </>
   )
 }
