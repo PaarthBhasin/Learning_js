@@ -1,25 +1,9 @@
-
-import './App.css'
-import { RecoilRoot, useRecoilValue } from 'recoil';
-import { todosAtomFamily } from './atoms';
-
-function App() {
-  return <RecoilRoot>
-    <Todo id={1}/>
-    <Todo id={2} />
-  </RecoilRoot>
+function App(){
+  return <div className="grid grid-cols-12">
+    <div className="col-span-12 sm:col-span-5 bg-red-500 text-lg rounded-lg">Hi there from first class</div>
+    <div className="col-span-12 sm:col-span-5 bg-green-500 text-lg rounded-lg">Hi there from second class</div>
+    <div className="col-span-12 sm:col-span-2 bg-yellow-400 text-lg rounded-lg">Hi there from third class</div>
+  </div>
 }
 
-function Todo({id}) {
-   const todo = useRecoilValue(todosAtomFamily(id));
-
-  return (
-    <>
-      {todo.title}
-      {todo.description}
-      <br />
-    </>
-  )
-}
-
-export default App
+export default App;
