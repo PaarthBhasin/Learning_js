@@ -1,42 +1,32 @@
-import React, { useEffect, useState, Component } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function App(){
-    const [render, setRender] = useState(true);
+    const todos = useTodos();
 
-    useEffect(()=>{
-        setTimeout(()=>{
-            setRender(r=>!r);
-        },3000)
-    })
+    return <>
+        {todos.map((todo, index) => <Track key={index} todo={todo} />)}
+    </>
+}
 
+function Track({todo}){
     return <div>
-        {render ?<MyComponent />: <div></div> }
+        {todo.title}
+        <br />
+        {todo.description}
     </div>
 }
-// functional component
-// function MyComponent(){
-//     useEffect(()=>{
-//         console.error("component mounted");
-//         return () =>{
-//             console.log("component unmounted")
-//         }
-//     },[])
-//     return <div>
-//         From inside my component
-//     </div>
-// }
 
-// class component
-class MyComponent extends React.Component(){
-    componentDidMount(){
-        console.log("component mounted")
-    }
-    componentWillUnmount(){
-        console.log("component unmounted")
-    }
-    render (){
-        return <div> Hi there</div>
-    }
+
+const useTodos = () =>{
+    const [todos, setTodos] = useState([]);
+    useEffect(()=>{
+        axios.get("https://sum-server.100xdevs.com/todos")
+        .then(res => {
+            setTodos(res.data.todos)
+        })
+    },[])
+    return todos;
+
 }
-
 export default App;
