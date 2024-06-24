@@ -1,33 +1,42 @@
-import { useIsOnline } from "./hooks/useIsOnline";
-import { useWindowDimension } from "./hooks/useWindowDimension";
+import { useState} from "react";
 
+// useInterval
+// import { useInterval } from "./hooks/useInterval";
 
-// useIsOnline()
 // function App(){
-//     const isOnline = useIsOnline();
-//     if(isOnline){
-//         return "You are online yay!!!"
-//     }
-//     return "You are offline, please connect to the internet"
+//     const [count, setCount] = useState(0);
+
+//     useInterval(()=>{
+//         setCount(c => c+1);
+//     }, 3000);
+//     return (
+//         <>
+//         Timer is at {count}</>
+//     )
 // }
 
-// useMousePointer()
-// function App(){
-//     const mousePointer = useMousePointer();
-//    return (
-//     <>
-//     Your mouse position is : {mousePointer.x} : {mousePointer.y}
-//     </>
-//    )
-// }
+// useDebouncing
+import React from 'react';
+import { useDebounce } from "./hooks/useDebounce";
 
-function App() {
-    const windowDimensions = useWindowDimension();
+const App = () => {
+  const [inputValue, setInputValue] = useState('');
+  const debouncedValue = useDebounce(inputValue, 500); // 500 milliseconds debounce delay
 
-    return(
-        <>
-        Your window dimensions are: {windowDimensions.height} : {windowDimensions.width}</>
-    )
-}
+  // Use the debouncedValue in your component logic, e.g., trigger a search API call via a useEffect
+
+  return (
+    <>
+    <input
+      type="text"
+      value={inputValue}
+      onChange={(e) => setInputValue(e.target.value)}
+      placeholder="Search..."
+    />
+    Debounced value is {debouncedValue}
+    </>
+  );
+};
+
 
 export default App;
