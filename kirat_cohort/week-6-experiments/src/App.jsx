@@ -1,47 +1,42 @@
-// import { useState } from "react";
-import React from "react";
+import React, { useEffect, useState, Component } from "react";
 
 function App(){
+    const [render, setRender] = useState(true);
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            setRender(r=>!r);
+        },3000)
+    })
+
     return <div>
-        <MyComponent />
+        {render ?<MyComponent />: <div></div> }
     </div>
 }
-
-// Class based component
-class MyComponent extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = { count: 0 };
-    }
-  
-    incrementCount = () => {
-      this.setState({ count: this.state.count + 1 });
-    }
-  
-    render() {
-      return (
-        <div>
-          <p>{this.state.count}</p>
-          <button className="border border-solid text-white bg-black rounded-lg" onClick={this.incrementCount}>Increment</button>
-        </div>
-      );
-    }
-  }
-
-
-// function based component
+// functional component
 // function MyComponent(){
-//     const [count, setCount]= useState(0);
-
-//     const incrementCount = () =>{
-//         setCount(count+1);
-//     }
-//     return(
-//         <div>
-//             <p>{count}</p>
-//             <button className="border border-solid" onClick={incrementCount}>Increment</button>
-//         </div>
-//     )
+//     useEffect(()=>{
+//         console.error("component mounted");
+//         return () =>{
+//             console.log("component unmounted")
+//         }
+//     },[])
+//     return <div>
+//         From inside my component
+//     </div>
 // }
+
+// class component
+class MyComponent extends React.Component(){
+    componentDidMount(){
+        console.log("component mounted")
+    }
+    componentWillUnmount(){
+        console.log("component unmounted")
+    }
+    render (){
+        return <div> Hi there</div>
+    }
+}
 
 export default App;
